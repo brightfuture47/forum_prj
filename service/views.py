@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from urllib.parse import urlparse
+from django.shortcuts import render, redirect
+from service.models import Post, Comment
 
-# Create your views here.
+def index(req):
+    return render(req, 'index.html')
