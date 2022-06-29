@@ -6,5 +6,11 @@
     <p>{{ post.description }}</p>
     <p>{{ post.created_at }}</p>  
     <hr>
-    {{ post.image.url }}
+    {% if post.image %}
+        <img src="{{ post.image.url }}">
+    {% endif %}
+    <hr>
+    <a href="" class="btn btn-primary">Edit</a>
+    <a href="" class="btn btn-danger">Delete</a>
+    <a href="" class="btn btn-info">Add comment</a>
 {% endblock %}
