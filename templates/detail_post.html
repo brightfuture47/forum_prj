@@ -12,5 +12,14 @@
     <hr>
     <a href="{% url 'update_post' post.pk %}" class="btn btn-primary">Edit</a>
     <a href="{% url 'delete_post' post.pk %}" class="btn btn-danger">Delete</a>
-    <a href="" class="btn btn-info">Add comment</a>
+    <a href="{% url 'add_comment' post.pk %}" class="btn btn-info">Add comment</a>
+    <hr>
+    {% if post.comments.all %}
+    <h4>Comments</h4>
+    <hr>
+        {% for comment in post.comments.all %}
+            <p>{{ comment.description }} - {{ comment.created_at }}</p>
+            <hr>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

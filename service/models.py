@@ -23,3 +23,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'{self.description}'
+
+    def get_absolute_url(self):
+        return reverse("index")

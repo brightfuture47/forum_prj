@@ -2,7 +2,7 @@ from urllib.parse import urlparse
 from django.shortcuts import render, redirect
 from service.models import Post, Comment
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 from django.urls import reverse_lazy
 
 def index(req):
@@ -35,3 +35,12 @@ class DeletePostView(DeleteView):
     model = Post
     template_name = "delete_post.html"
     success_url = reverse_lazy('index')
+
+class AddCommentView(CreateView):
+    model = Comment
+    template_name = "add_comment.html"
+    form_class = CommentForm
+
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)

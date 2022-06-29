@@ -12,3 +12,12 @@ class PostForm(ModelForm):
             "description": forms.Textarea(attrs={'class':'form-control'}),
             
         }
+
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        fields = ["description"]
+        widgets = {
+            "description": forms.Textarea(attrs={'class':'form-control'}),   
+        }
