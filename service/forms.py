@@ -2,6 +2,8 @@ from tkinter import Widget
 from django.forms import ModelForm
 from .models import Post, Comment
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 class PostForm(ModelForm):
     class Meta:
@@ -21,3 +23,9 @@ class CommentForm(ModelForm):
         widgets = {
             "description": forms.Textarea(attrs={'class':'form-control'}),   
         }
+
+
+class UserRegisterForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields =['username', 'email', 'password1', 'password2']
