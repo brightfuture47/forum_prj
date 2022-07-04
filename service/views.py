@@ -4,11 +4,13 @@ from service.models import Post, Comment
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import PostForm, CommentForm, UserRegisterForm
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 
 def index(req):
     return render(req, 'index.html')
 
+@login_required
 def about(req):
     return render(req, 'about.html')
 
