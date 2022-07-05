@@ -4,16 +4,16 @@ from service.models import Post, Comment
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import PostForm, CommentForm, UserRegisterForm
 from django.urls import reverse_lazy
-from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+
 
 
 def index(req):
     return render(req, 'index.html')
 
-
 def about(req):
     return render(req, 'about.html')
+
 
 
 class RegisterForm(CreateView):
