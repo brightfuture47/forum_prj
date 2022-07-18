@@ -1,3 +1,7 @@
+import csv
+import datetime
+from urllib import response
+
 from urllib.parse import urlparse
 from django.shortcuts import render, redirect
 from django.conf import settings
@@ -11,7 +15,7 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail import send_mail
 from django.core.files.storage import FileSystemStorage
-
+from django.http import HttpResponse
 
 def index(req):
     return render(req, 'index.html')
@@ -105,4 +109,12 @@ def upload(req):
 
 
 def download(req):
-    pass
+    response = HttpResponse(content_type='text/csv')
+    writer = csv.writer(response)
+    writer.writerow(("Title", "Description", "Created_at"))
+
+    for row in Post.objects.all().values_list('title', 'description', 'created_at'):
+        writer.writerow(row)
+    filename= str(datetime.datetime.now()) + ' ' + 'posts.csv'
+    response ["Content-Disposition"] = f"attachment; filename={filename}"
+    return response 
