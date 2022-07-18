@@ -99,7 +99,8 @@ def upload(req):
     if req.method == "POST":
         uploaded_file = req.FILES['file']
         file = FileSystemStorage()
-        file.save(uploaded_file.name, uploaded_file)
+        name = file.save(uploaded_file.name, uploaded_file)
+        context['url'] = file.url(name)
     return render(req, "upload.html", context)
 
 

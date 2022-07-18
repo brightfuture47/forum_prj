@@ -1,0 +1,3 @@
+Hello, dear Teacher!
+My name is Shara Kocharyan
+And i'm a future Python-developer
