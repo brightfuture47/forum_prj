@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail import send_mail
+from django.core.files.storage import FileSystemStorage
 
 
 def index(req):
@@ -91,3 +92,16 @@ class AddCommentView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
+
+
+def upload(req):
+    context={}
+    if req.method == "POST":
+        uploaded_file = req.FILES['file']
+        file = FileSystemStorage()
+        file.save(uploaded_file.name, uploaded_file)
+    return render(req, "upload.html", context)
+
+
+def download(req):
+    pass
