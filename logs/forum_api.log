@@ -3,3 +3,31 @@ C:\Users\home\Desktop\forum_prj\forum_prj\urls.py changed, reloading.
 Watching for file changes with StatReloader
 C:\Users\home\Desktop\forum_prj\forum_prj\settings.py changed, reloading.
 Watching for file changes with StatReloader
+C:\Users\home\Desktop\forum_prj\forum_prj\settings.py changed, reloading.
+[2022.07.26 22:24:49] INFO Watching for file changes with StatReloader
+[2022.07.26 22:28:02] INFO C:\Users\home\Desktop\forum_prj\api\views.py changed, reloading.
+[2022.07.26 22:28:04] INFO Watching for file changes with StatReloader
+[2022.07.26 22:28:59] INFO C:\Users\home\Desktop\forum_prj\api\views.py changed, reloading.
+[2022.07.26 22:29:01] INFO Watching for file changes with StatReloader
+[2022.07.26 22:29:17] INFO Watching for file changes with StatReloader
+[2022.07.26 22:29:38] INFO C:\Users\home\Desktop\forum_prj\api\views.py changed, reloading.
+[2022.07.26 22:29:39] INFO Watching for file changes with StatReloader
+[2022.07.26 22:30:19] INFO C:\Users\home\Desktop\forum_prj\api\views.py changed, reloading.
+[2022.07.26 22:30:21] INFO Watching for file changes with StatReloader
+[2022.07.26 22:32:44] INFO C:\Users\home\Desktop\forum_prj\api\views.py changed, reloading.
+[2022.07.26 22:32:46] INFO Watching for file changes with StatReloader
+[2022.07.26 22:32:57] INFO "GET /api/ HTTP/1.1" 200 5335
+[2022.07.26 22:33:01] WARNING Not Found: /api/limit
+[2022.07.26 22:33:01] WARNING "GET /api/limit HTTP/1.1" 404 6664
+[2022.07.26 22:33:07] WARNING Not Found: /limit
+[2022.07.26 22:33:07] WARNING "GET /limit HTTP/1.1" 404 4582
+[2022.07.26 22:34:38] INFO C:\Users\home\Desktop\forum_prj\api\views.py changed, reloading.
+[2022.07.26 22:34:39] INFO Watching for file changes with StatReloader
+[2022.07.26 22:35:16] WARNING Not Found: /checkbox/limit
+[2022.07.26 22:35:16] WARNING "GET /checkbox/limit HTTP/1.1" 404 4609
+[2022.07.26 22:35:28] WARNING Not Found: /checkbox/limit/
+[2022.07.26 22:35:28] WARNING "GET /checkbox/limit/?a=2 HTTP/1.1" 404 4616
+[2022.07.26 22:35:39] INFO Params: <QueryDict: {'a': ['2']}>
+[2022.07.26 22:35:39] INFO "GET /api/checkbox/limit/?a=2 HTTP/1.1" 200 6084
+[2022.07.26 22:47:31] INFO C:\Users\home\Desktop\forum_prj\api\views.py changed, reloading.
+[2022.07.26 22:47:34] INFO Watching for file changes with StatReloader

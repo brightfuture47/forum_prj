@@ -1,7 +1,8 @@
+import logging
+
 from unittest import result
 from django.forms import CharField
 #from django.shortcuts import render
-
 from rest_framework import viewsets
 from api import serializers
 from api.models import Checkbox
@@ -15,6 +16,7 @@ from rest_framework import authentication, permissions
 from rest_framework import generics, mixins
 from api.utils import Sum
 
+logger = logging.getLogger('django')
 
 class CheckboxViewSet(viewsets.ModelViewSet):
     queryset = Checkbox.objects.all()
@@ -22,7 +24,10 @@ class CheckboxViewSet(viewsets.ModelViewSet):
     
     @action(detail=False, methods=["get"])
     def limit(self, req, pk=None):
-        params = req.query_params
+        try:
+            params = req.query_params
+        except:
+            logger.info('Params: %s', params)
         return Response({"result":params})
 
 

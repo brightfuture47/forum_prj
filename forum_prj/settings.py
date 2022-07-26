@@ -183,6 +183,7 @@ LOGGING = {
             'class': 'logging.FileHandler',
             'filename': BASE_DIR / 'logs/forum_api.log',
             'level': 'INFO',
+            'formatter': 'simple',
         },
     },
     'loggers': {
