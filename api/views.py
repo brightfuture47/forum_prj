@@ -16,9 +16,9 @@ from rest_framework import generics, mixins
 from api.utils import Sum
 
 
-#class CheckboxViewSet(viewsets.ModelViewSet):
-#    queryset = Checkbox.objects.all()
-#    serializer_class = CheckboxSerializer
+class CheckboxViewSet(viewsets.ModelViewSet):
+    queryset = Checkbox.objects.all()
+    serializer_class = CheckboxSerializer
 
 class CheckboxList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
     queryset = Checkbox.objects.all()
