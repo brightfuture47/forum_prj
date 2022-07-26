@@ -1,3 +1,4 @@
+from unittest import result
 from django.forms import CharField
 #from django.shortcuts import render
 
@@ -12,6 +13,7 @@ from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from rest_framework import authentication, permissions
 from rest_framework import generics, mixins
+from api.utils import Sum
 
 
 #class CheckboxViewSet(viewsets.ModelViewSet):
@@ -31,14 +33,13 @@ class CheckboxList(generics.GenericAPIView, mixins.ListModelMixin, mixins.Create
 
 
 
-
-
 @api_view(['GET'])
 def checkbox_list(req):
     checkboxes = Checkbox.objects.all()
     serializer = CheckboxSerializer(checkboxes, many=True)
     return Response(serializer.data)
-    
+
+
 @api_view(['GET'])
 def checkbox_detail(req, pk):
     try:
@@ -75,12 +76,13 @@ def checkbox_delete(req, pk):
     checkbox.delete()
     return Response(status = status.HTTP_204_NO_CONTENT)
 
+
 class DataView(APIView):
 
     @staticmethod
     def get(req):
         serializer = DataSerializer(data=req.query_params)
         serializer.is_valid(raise_exception=True)
-        params = serializer.validated_data
-        return Response({'params': params}, status=status.HTTP_200_OK)
+        result = Sum(serializer.validated_data).call()
+        return Response(result, status=status.HTTP_200_OK)
 
