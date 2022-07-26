@@ -1,3 +1,4 @@
+from django.db.models import fields
 from rest_framework import serializers
 from api.models import Checkbox
 
@@ -6,3 +7,16 @@ class CheckboxSerializer(serializers.ModelSerializer):
         model = Checkbox
         fields = "__all__"
         
+class DataSerializer(serializers.Serializer):
+    
+    title = serializers.CharField(required=False, allow_null=True, allow_blank=True)
+    attrs = serializers.JSONField(required=False)
+    type = serializers.CharField()
+
+    @staticmethod
+    def validate_type(type):
+        if not type in ("dict", "list", "tuple"):
+            raise serializers.ValidationError(f"{type} is not allowed")
+        return type
+        
+ 
